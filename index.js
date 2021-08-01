@@ -105,9 +105,6 @@ var TRAVAZAP = require("./lib/travazap.js")
 //menu
 var MENU = require("./lib/menu.js")
 
-//arquivos da res 
-var IMG = require("./res/img.js")
-
 //comandos
 bot.on("chat-update", chatUpdate => {
         if (chatUpdate.messages && chatUpdate.count) {
