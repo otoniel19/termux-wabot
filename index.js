@@ -63,6 +63,9 @@ bot.on("open", () => {
 app.get('/', (request,response) => {
   bot.updatePresence(Presence.available)
   response.sendStatus(200);
+  
+  const authInfo = bot.base64EncodedAuthInfo()
+fs.writeFileSync('./auth_info.json', JSON.stringify(authInfo, null, '\t')) 
 });
 
 app.listen(process.env.PORT)
