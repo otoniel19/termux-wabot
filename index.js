@@ -8,7 +8,9 @@
   terminado: 00/0/0000
   
 */
-
+//tratamento de erros
+try {
+  
 //conexão ao whatsapp web
 const {
 	WAConnection,
@@ -273,10 +275,32 @@ const botPhoneModel = bot.user.phone.device_model.toUpperCase()
         },3000)
        break;
        case `${p}hetero`:
-       	//em breve
+       	 bot.sendMessage(user,mess.carregando,messageType.text)
+       	 
+       	 var percentHetero = Math.floor(Math.random() * 100)
+       	 
+       	 setTimeout(function() {
+       	   bot.sendMessage(
+         	user, 
+        { url: 'res/img/hetero.jpeg' }, 
+          MessageType.image, 
+        { mimetype: Mimetype.jpeg, caption: `Você e ${percentHetero}% hetero` }
+        )      
+       	 },3000)
        	break;
        case `${p}feio`:
-       	//em breve
+       	bot.sendMessage(user,mess.carregando,messageType.text)
+       	 
+       	 var percentFeio = Math.floor(Math.random() * 100)
+       	 
+       	 setTimeout(function() {
+       	   bot.sendMessage(
+         	user, 
+        { url: 'res/img/feio.jpeg' }, 
+          MessageType.image, 
+        { mimetype: Mimetype.jpeg, caption: `Você e ${percentFeio}% feio` }
+        )      
+       	 },3000)
        	break;
        	
   }
@@ -335,3 +359,8 @@ const botPhoneModel = bot.user.phone.device_model.toUpperCase()
        }
     }
 })
+
+
+} catch(erro) {
+  console.log(`Erro: ${erro} Linha: ${erro.stack.slice(77,-1)}`)
+}
