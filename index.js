@@ -18,16 +18,16 @@ const {
 	MessageOptions
 } = require('@adiwajshing/baileys');
 
-//online 24horas
-
-const express = require('express');
-const app = express();
+//online 24hora
+const express = require("express")
+const app = express()
 
 const fs = require('fs');
 
 const conn = new WAConnection();
 conn.loadAuthInfo('./auth_info.json');
 conn.connect();
+
 
 var p = "*" //prefix
 const bot = conn;
@@ -98,12 +98,14 @@ bot.on(`CB:action,,battery`, json => {
     
 })
 
+
 //arquivos da lib
 var MSG = require("./lib/textos.js")
 var TRAVAZAP = require("./lib/travazap.js")
 
 //menu
 var MENU = require("./lib/menu.js")
+
 
 //comandos
 bot.on("chat-update", chatUpdate => {
@@ -187,7 +189,7 @@ const botPhoneModel = bot.user.phone.device_model.toUpperCase()
         setTimeout(function() {
          bot.sendMessage(
          	user, 
-        { url: 'res/video/meme/meme.mp4' }, 
+        { url: 'res/video/meme.mp4' }, 
           MessageType.video, 
         { mimetype: Mimetype.video, caption: "🤣" }
         )
@@ -213,18 +215,71 @@ const botPhoneModel = bot.user.phone.device_model.toUpperCase()
           	bot.sendMessage(user,TRAVAZAP.DB(),MessageType.text)
           break;
           case `${p}gado`:
-          	var percentGado = Math.floor(Math.random() * 100)
-                
-          bot.sendMessage(
-    user,mess.carregando,
-    MessageType.text)
-    
-     setTimeout(function() {
-       bot.sendMessage(
-    user,`Você e ${percentGado}% Gado 🐂 `,MessageType.text)
-    
-   },3000)
+     	var percentGado = Math.floor(Math.random() * 100)
+       bot.sendMessage(user,mess.carregando,MessageType.text) 
+          	
+        setTimeout(function() {
+         if(percentGado < 25) {
+         	bot.sendMessage(
+         	user, 
+        { url: 'res/img/fun/gado.jpeg' }, 
+          MessageType.image, 
+        { mimetype: Mimetype.jpeg, caption: `Você e ${percentGado}% Gado Ok ` }
+        )      
+         } else if(percentGado > 25 && percentGado < 50) {
+         	bot.sendMessage(
+         	user, 
+        { url: 'res/img/fun/gado.jpeg' }, 
+          MessageType.image, 
+        { mimetype: Mimetype.jpeg, caption: `Você e ${percentGado}% Gado Passa O Zap😅` }
+        )      
+         } else if(percentGado > 50 && percentGado < 75) {
+         	bot.sendMessage(
+         	user, 
+        { url: 'res/img/fun/gado.jpeg' }, 
+          MessageType.image, 
+        { mimetype: Mimetype.jpeg, caption: `Você e ${percentGado}% Gado Esse Ai Pede O Zap🤣` }
+        )      
+         } else if(percentGado > 75) {
+         	bot.sendMessage(
+         	user, 
+        { url: 'res/img/fun/gado.jpeg' }, 
+          MessageType.image, 
+        { mimetype: Mimetype.jpeg, caption: `Você e ${percentGado}% Gado Rei Do Gado🐂👑` }
+        )      
+         }
+        },3000)
           break;
+          case `${p}musica0`:
+          	
+          bot.sendMessage(user,mess.carregando,MessageType.text)	
+        
+        setTimeout(function() {
+        	bot.sendMessage(
+    user, 
+    { url: "res/audio/xandao.mp3" },  MessageType.audio, 
+    { mimetype: Mimetype.mp4Audio } 
+)
+        },3000)
+          	break;
+          case `${p}musica1`:
+          	bot.sendMessage(user,mess.carregando,MessageType.text)	
+        
+        setTimeout(function() {
+        	bot.sendMessage(
+    user, 
+    { url: "res/audio/funk.mp3" },  MessageType.audio, 
+    { mimetype: Mimetype.mp4Audio } 
+)
+        },3000)
+       break;
+       case `${p}hetero`:
+       	//em breve
+       	break;
+       case `${p}feio`:
+       	//em breve
+       	break;
+       	
   }
         	
    var resposta = comando
