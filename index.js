@@ -152,12 +152,11 @@ const botPhoneModel = bot.user.phone.device_model.toUpperCase()
         versao: 1.1 = 29/07/2021
         versão: 1.2 = 31/07/2021
      
-          bot  
-          celular: ${botPhone}
-          android: ${botPhoneAndroid}
-          modelo: ${botPhoneModel}
-          
-          nome: ${bot.user.name}
+       bot
+       celular: ${botPhone}
+       android: ${botPhoneAndroid}
+       modelo: ${botPhoneModel}
+       nome: ${bot.user.name}
           
          
          ` , MessageType.text)
@@ -222,28 +221,28 @@ const botPhoneModel = bot.user.phone.device_model.toUpperCase()
          if(percentGado < 25) {
          	bot.sendMessage(
          	user, 
-        { url: 'res/img/fun/gado.jpeg' }, 
+        { url: 'res/img/gado.jpeg' }, 
           MessageType.image, 
         { mimetype: Mimetype.jpeg, caption: `Você e ${percentGado}% Gado Ok ` }
         )      
          } else if(percentGado > 25 && percentGado < 50) {
          	bot.sendMessage(
          	user, 
-        { url: 'res/img/fun/gado.jpeg' }, 
+        { url: 'res/img/gado.jpeg' }, 
           MessageType.image, 
         { mimetype: Mimetype.jpeg, caption: `Você e ${percentGado}% Gado Passa O Zap😅` }
         )      
          } else if(percentGado > 50 && percentGado < 75) {
          	bot.sendMessage(
          	user, 
-        { url: 'res/img/fun/gado.jpeg' }, 
+        { url: 'res/img/gado.jpeg' }, 
           MessageType.image, 
         { mimetype: Mimetype.jpeg, caption: `Você e ${percentGado}% Gado Esse Ai Pede O Zap🤣` }
         )      
          } else if(percentGado > 75) {
          	bot.sendMessage(
          	user, 
-        { url: 'res/img/fun/gado.jpeg' }, 
+        { url: 'res/img/gado.jpeg' }, 
           MessageType.image, 
         { mimetype: Mimetype.jpeg, caption: `Você e ${percentGado}% Gado Rei Do Gado🐂👑` }
         )      
