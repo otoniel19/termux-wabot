@@ -307,6 +307,7 @@ const botPhoneModel = bot.user.phone.device_model.toUpperCase()
        	break;
        	
   }
+  
         	
    var resposta = comando
    
@@ -351,15 +352,17 @@ const botPhoneModel = bot.user.phone.device_model.toUpperCase()
   }
   
   
+       
+       
+  var g = chatUpdate.jid.substr(13,15)     
+       }
+       
        if(comando.startsWith(p)) {
         console.log(`Comando: ${comando} As: ${tempo} Tamanho: ${comando.length} De: ${userNumber}`)	
        } else {
       	console.log(`Mensagem: ${comando} As: ${tempo} Tamanho: ${comando.length} De: ${userNumber}`)	
        }
        
-  var g = chatUpdate.jid.substr(13,15)     
-
-       }
     }
 })
 
