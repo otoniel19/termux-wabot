@@ -278,7 +278,7 @@ const botPhoneModel = bot.user.phone.device_model.toUpperCase()
         },3000)
        break;
        case `${p}hetero`:
-       	 bot.sendMessage(user,mess.carregando,messageType.text)
+       	 bot.sendMessage(user,mess.carregando,MessageType.text)
        	 
        	 var percentHetero = Math.floor(Math.random() * 100)
        	 
@@ -292,7 +292,7 @@ const botPhoneModel = bot.user.phone.device_model.toUpperCase()
        	 },3000)
        	break;
        case `${p}feio`:
-       	bot.sendMessage(user,mess.carregando,messageType.text)
+       	bot.sendMessage(user,mess.carregando,MessageType.text)
        	 
        	 var percentFeio = Math.floor(Math.random() * 100)
        	 
