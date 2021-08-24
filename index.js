@@ -9,7 +9,15 @@
   
 */
 //tratamento de erros
-try {
+
+const express = require("express")
+const app = express()
+
+
+app.get('/', (request,response) => {
+  response.sendStatus(200);
+  
+ try {
   
 //conexão ao whatsapp web
 const {
@@ -20,9 +28,6 @@ const {
 	MessageOptions
 } = require('@adiwajshing/baileys');
 
-//online 24hora
-const express = require("express")
-const app = express()
 
 const fs = require('fs');
 
@@ -57,25 +62,7 @@ const vcardc = 'BEGIN:VCARD\n'
             + 'TEL;type=CELL;type=VOICE;waid=559193609020:+91 9360-9020\n' 
             + 'END:VCARD'
 
-
-bot.on("open", () => {
-	
-app.get('/', (request,response) => {
-  bot.updatePresence(Presence.available)
-  response.sendStatus(200);
-  
-  const authInfo = bot.base64EncodedAuthInfo()
-fs.writeFileSync('./auth_info.json', JSON.stringify(authInfo, null, '\t')) 
-});
-
-app.listen(process.env.PORT)
-
-	console.log(` 
-       	bot online 🟢 
-	`)
-	
-	
-})
+   
 
 
 var hora = new Date().getHours()
@@ -128,7 +115,6 @@ const botPhoneAndroid = bot.user.phone.os_version.toUpperCase()
 const botPhoneModel = bot.user.phone.device_model.toUpperCase()
 
 
-
  if(comando.startsWith(p)) {
      switch(comando) {
        case `${p}menu`:
@@ -156,7 +142,9 @@ const botPhoneModel = bot.user.phone.device_model.toUpperCase()
         versão: 1.0 = 28/07/2021
         versao: 1.1 = 29/07/2021
         versão: 1.2 = 31/07/2021
-     
+        versão: 1.3 = 03/08/2021
+        versão: 1.4 = 08/08/2021
+        
        bot
        celular: ${botPhone}
        android: ${botPhoneAndroid}
@@ -305,7 +293,9 @@ const botPhoneModel = bot.user.phone.device_model.toUpperCase()
         )      
        	 },3000)
        	break;
-       	
+       	case `${p}the`:
+       		bot.sendMessage(user,"Qual o comando?",MessageType.text)
+       	break;
   }
   
         	
@@ -363,6 +353,8 @@ const botPhoneModel = bot.user.phone.device_model.toUpperCase()
       	console.log(`Mensagem: ${comando} As: ${tempo} Tamanho: ${comando.length} De: ${userNumber}`)	
        }
        
+       
+       
     }
 })
 
@@ -370,3 +362,12 @@ const botPhoneModel = bot.user.phone.device_model.toUpperCase()
 } catch(erro) {
   console.log(`Erro: ${erro} Linha: ${erro.stack.slice(77,-1)}`)
 }
+ 
+});
+
+app.listen(process.env.PORT)
+
+	console.log(` 
+       	bot online 🟢 
+	`)
+	
